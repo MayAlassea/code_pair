@@ -64,7 +64,16 @@ function clickConfirmAddStudentInfo() {
     const findStudentInfo = studentInfo.find(item => item.firstName === addfname && item.lastName === addlname);
     if (findStudentInfo === undefined && addfname && addlname && addScore !== "")
         studentInfo.push(addNewStudent);
-    console.log(studentInfo);
+}
+
+function showAllStudentList() {
+    let listDisplay = document.getElementById("StudentListDisplay");
+    studentInfo.forEach((student) => {
+        let newLi = document.createElement("Li");
+        let newText = document.createTextNode("ชื่อ-นามสกุล: " + student.firstName + " " + student.lastName + " คะแนน: " + student.score)
+        newLi.appendChild(newText);
+        listDisplay.appendChild(newLi);
+    });
 }
 
 module.exports = gradeCriteria;
